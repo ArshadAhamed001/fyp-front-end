@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import PageHeader from "../components/PageHaeder";
+import PageHeader from "../components/PageHeader";
 
 const PageHeaderText = {
   linkText: "Home",

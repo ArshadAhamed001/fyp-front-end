@@ -14,7 +14,7 @@ const BannerTwo = () => {
               <div className="banner-content">
                 <h1 className="mb-3">
                   <span className="gradient-text-orange">Upload</span> ,
-                  Analyze, And Find
+                  Analyze, And Predict
                   <span className="gradient-text-orange"> Gem Stones</span>
                 </h1>
                 <p className="mb-5">

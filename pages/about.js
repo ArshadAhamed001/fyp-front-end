@@ -1,4 +1,4 @@
-import PageHeader from "../components/PageHaeder";
+import PageHeader from "../components/PageHeader";
 import SwiperCore, { Autoplay } from "swiper";
 import SideBar from "../components/SideBar";
 SwiperCore.use([Autoplay]);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import PageHeader from "../components/PageHaeder";
+import axios from "axios";
+import PageHeader from "../components/PageHeader";
+import { BASE_URL } from "../constants";
 
 const PageHeaderText = {
   linkText: "Home",
@@ -7,6 +9,31 @@ const PageHeaderText = {
 };
 
 const UploadGemImage = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [responseData, setResponseData] = useState(null);
+
+  const handleUploadImage = async () => {
+    if (!selectedImage) return;
+
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
+
+    const formData = new FormData();
+    formData.append("file", selectedImage);
+
+    axios
+      .post(`${BASE_URL}/upload-image`, formData, config)
+      .then((res) => {
+        const { data } = res;
+        if (data?.payload) {
+          setResponseData(data.payload);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <PageHeader text={PageHeaderText} />
@@ -24,12 +51,18 @@ const UploadGemImage = () => {
                           <i className="icofont-upload-alt"></i>
                           Upload a file
                         </div>
-                        <input type="file" />
+                        <input
+                          type="file"
+                          onChange={(event) => {
+                            console.log(event.target.files[0]);
+                            setSelectedImage(event.target.files[0]);
+                          }}
+                        />
                       </div>
                     </div>
 
                     <div className="submit-btn-field text-center">
-                      <button>Analyze</button>
+                      <button onClick={handleUploadImage}>Analyze</button>
                     </div>
                   </div>
                 </div>
