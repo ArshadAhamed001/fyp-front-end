@@ -1,6 +1,15 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const PageHeader = ({ text, breadcrumb = true }) => {
+const PageHeader = ({ text = { heading: "" }, breadcrumb = true }) => {
+  const [headingText, setHeadingText] = useState(text);
+
+  useEffect(() => {
+    if (text) {
+      setHeadingText(text);
+    }
+  }, [text.heading]); 
+
   const authorSection = (
     <a className="col-author" href="author.html">
       <img src="assets/images/seller/collector-3.gif" alt="Author" />

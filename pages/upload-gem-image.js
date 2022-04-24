@@ -15,7 +15,6 @@ const UploadGemImage = () => {
   const handleUploadImage = async () => {
     if (!selectedImage) return;
 
-
     const config = {
       headers: { "content-type": "multipart/form-data" },
     };
@@ -29,9 +28,17 @@ const UploadGemImage = () => {
         const { data } = res;
         if (data?.payload) {
           setResponseData(data.payload);
+          localStorage.setItem(
+            "predicted-gem-payload",
+            JSON.stringify(data.payload)
+          );
+          window.location.href = "gem-predicted-result";
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        debugger
+      });
   };
 
   return (
@@ -46,6 +53,11 @@ const UploadGemImage = () => {
                   <div className="create-nft-form">
                     <div className="upload-item mb-30">
                       <p>PNG,JPG,JPEG</p>
+                      {selectedImage && (
+                        <>
+                          <p>{selectedImage.name || "Hello"}</p>
+                        </>
+                      )}
                       <div className="custom-upload">
                         <div className="file-btn">
                           <i className="icofont-upload-alt"></i>
