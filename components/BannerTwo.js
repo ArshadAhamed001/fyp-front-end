@@ -14,12 +14,11 @@ const BannerTwo = () => {
               <div className="banner-content">
                 <h1 className="mb-3">
                   <span className="gradient-text-orange">Upload</span> ,
-                  Analyze, And Predict
+                  Analyze, And Identify
                   <span className="gradient-text-orange"> Gem Stones</span>
                 </h1>
                 <p className="mb-5">
-                  Digital Marketplace For Crypto Collectibles And Non-Fungible
-                  Tokens. Buy, Sell, And Discover Exclusive Digital Assets.
+                  Digital Platform to Analyze and Identify Gem Stones.
                 </p>
                 <div className="banner-btns d-flex flex-wrap">
                   <Link href="/upload-image">
