@@ -12,6 +12,8 @@ const UploadGemImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [responseData, setResponseData] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const handleUploadImage = async () => {
     if (!selectedImage) return;
 
@@ -21,6 +23,8 @@ const UploadGemImage = () => {
 
     const formData = new FormData();
     formData.append("file", selectedImage);
+
+    setLoading(true)
 
     axios
       .post(`${BASE_URL}/upload-image`, formData, config)
@@ -34,10 +38,11 @@ const UploadGemImage = () => {
           );
           window.location.href = "gem-predicted-result";
         }
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err)
-        debugger
+        setLoading(false)
       });
   };
 
@@ -74,7 +79,7 @@ const UploadGemImage = () => {
                     </div>
 
                     <div className="submit-btn-field text-center">
-                      <button onClick={handleUploadImage}>Analyze</button>
+                      <button disabled={loading} onClick={handleUploadImage}>{loading ? 'Loading...' : 'Analyze'}</button>
                     </div>
                   </div>
                 </div>

@@ -8,8 +8,8 @@ function getBaseUrl() {
     return 'https://gem-world-fyp-api.herokuapp.com';
   }
 
-  return "http://192.168.8.149:4000"
-  // return "https://gem-world-fyp-api.herokuapp.com"
+  // return "http://192.168.8.149:4000"
+  return "https://gem-world-fyp-api.herokuapp.com"
 }
 
 
