@@ -1,19 +1,20 @@
 function getBaseUrl() {
-  let ENV = process.env.REACT_APP_ENV || '';
-  if (ENV) {
-    ENV = ENV.trim();
-    ENV = ENV.toLowerCase();
-  }
-  if (ENV === 'production') {
-    return 'https://gem-world-fyp-api.herokuapp.com';
-  }
+  // let ENV = process.env.REACT_APP_ENV || '';
+  // if (ENV) {
+  //   ENV = ENV.trim();
+  //   ENV = ENV.toLowerCase();
+  // }
+  // if (ENV === 'production') {
+  //   return 'https://gem-world-fyp-api.herokuapp.com';
+  // }
 
-  // return "http://192.168.8.149:4000"
-  return "https://gem-world-fyp-api.herokuapp.com"
+  return "http://localhost:4000"
+  //return "https://gem-world-fyp-api.herokuapp.com"
 }
 
 
 export const BASE_URL = getBaseUrl();
+console.log(BASE_URL)
 
 export const predictedResults = [
   {
